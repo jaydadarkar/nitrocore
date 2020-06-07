@@ -1,0 +1,16 @@
+{
+  "name": "@jaydadarkar/nitrocore",
+  "version": "1.0.0",
+  "description": "Library For Nitro MVC",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node -e \"try{require('./postinstall')}catch(e){}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaydadarkar/nitrocore.git"
+  },
+  "author": "Jay Dadarkar <dadarkarjay@gmail.com> (https://jaydadarkar.com)",
+  "license": "MIT"
+}
