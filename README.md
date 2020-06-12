@@ -4,27 +4,55 @@ Core Library For Nitro MVC
 ## The Nitro MVC Doc Explains Usage Of This Small Library
 
 ## Usage
-Strings
-first: Returns first character of a string.
-last: Returns last character of a string.
-strLength: Returns length of the string.
-subString: Returns a substring.
-uppercase: Returns a converted to uppercase string.
-lowercase: Returns a converted to lowercase string.
-capitalize: Returns a string with every first word of the string uppercased.
-wordCount: Returns number of words in a string.
+##### Strings
+```
+ const nitro = require('@jaydadarkar/nitrocore');
+ let abc = nitro.strings.first('This Is Test String');  // Returns T
+```
+first: Returns first character of a string.\
+last: Returns last character of a string.\
+strLength: Returns length of the string.\
+subString: Returns a substring.\
+uppercase: Returns a converted to uppercase string.\
+lowercase: Returns a converted to lowercase string.\
+capitalize: Returns a string with every first word of the string uppercased.\
+wordCount: Returns number of words in a string.\
 random: Returns a randomly generated alpha-numeric string.
 
-Arrays
-first: Returns first element of an array.
-last: Returns last element of an array.
-sort: Returns a sorted array.
-randomSort: Returns a randomly sorted array.
-arrayJoin: Returns a concatinated array.
-random: Returns a random element from an array.
-min: returns the minimum element of an array.
+##### Arrays
+```
+ const nitro = require('@jaydadarkar/nitrocore');
+ let abc = nitro.arrays.first(['abc', 'pqr', 'xyz']);  // Returns abc
+```
+first: Returns first element of an array.\
+last: Returns last element of an array.\
+sort: Returns a sorted array.\
+randomSort: Returns a randomly sorted array.\
+arrayJoin: Returns a concatinated array.\
+random: Returns a random element from an array.\
+min: returns the minimum element of an array.\
 max: returns the maximum element of an array.
 
+##### Storage
+```
+ const nitro = require('@jaydadarkar/nitrocore');
+
+ // Add middleware To The Route upload.single('myFile')
+
+// Your Controller
+ module.exports.controller = async (req,res,next) => {
+ await nitro.storage.put('public', req.file);  // Save A User Uploaded File To Storage/Public/Uploads
+ }
+```
+put: Uploads A File To Public, Local, AWS S3 And Google Cloud.\
+get: Returns A Buffer Object Of The File. You Can Store This Object In A Variable And Write It To A File.\
+delete: Deletes A File From Public, Local, AWS S3 And Google Cloud.
+
+## Changelog
+```
+(v1.1.0) => { Storage Method }
+(v1.0.0) => {String Methods, Array Methods}
+```
 ## Author
 [Jay Dadarkar](https://jaydadarkar.com/)
 
