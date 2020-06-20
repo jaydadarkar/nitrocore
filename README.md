@@ -48,8 +48,36 @@ put: Uploads A File To Public, Local, AWS S3 And Google Cloud.\
 get: Returns A Buffer Object Of The File. You Can Store This Object In A Variable And Write It To A File.\
 delete: Deletes A File From Public, Local, AWS S3 And Google Cloud.
 
+##### Pagination
+```
+// Route
+router.get('/products/:page?', parseForm, csrfProtection, controller.products);
+
+// Controller
+export.products = async (req,res) => {
+await Products.find({}, function(err,Products){
+    Products = nitro.paginate(req,20,Products);    // req: Express req object, 20: Limit, Products: Mongoose Object
+        if(!err){
+            res.render('shop/products', {csrfToken: req.csrfToken(), products: Products.data, links: Products.links});
+        }
+        else{
+            res.render('errors/messages', {val_errors: err});
+        }
+    });
+}
+
+// Edit Your View. Apply Foreach to products and add links at bottom
+<%- links %>
+```
+
+##### Logger
+```
+nitro.log(data)  // Appends data to nitrolog.log file in storage/logs
+```
+
 ## Changelog
 ```
+(v1.2.0) => { Pagination, Logger }
 (v1.1.0) => { Storage Method }
 (v1.0.0) => {String Methods, Array Methods}
 ```
